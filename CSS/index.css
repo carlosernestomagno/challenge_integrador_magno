@@ -1,0 +1,63 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@100;200;300;400;500;600&display=swap');
+
+:root{
+    /*Palette de colors*/
+    --primary-solid:#FF3333;
+    --primary-900: rgba(255, 51, 51, 0.9);
+    --primary-500: rgba(255, 51, 51, 0.5);
+    --primary-300: rgba(255, 51, 51, 0.3);
+
+    --secondary-solid:#1D84B5;
+    --secondary-900:rgba(29, 132, 181, 0.9);
+    --secondary-500:rgba(29, 132, 181, 0.5);
+    --secondary-300:rgba(29, 132, 181, 0.3);
+
+
+    --dark-solid:#30343F;
+    --dark-900:rgba(48, 52, 63, 0.9);
+    --dark-500:rgba(48, 52, 63, 0.5);
+    --dark-300:rgba(48, 52, 63, 0.3);
+}
+
+*, /*sacar el marge y relleno de eapcio, dentro de la caja poner margen*/
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html{/*normalizar la etiqueta raiz de header, y heredas sus propiedades a sus hijos*/
+    font-family: 'Inter', sans-serif;
+    font-size: 62.5%;/*= a 10px */
+    color: #111111;
+}
+
+a { /* normalizar los enlaces, texto sacar el subrayado, tamaño fuente, color*/
+    text-decoration: none;
+    font-size: 2em;
+    font-family: inherit;
+    color: inherit; /*que tome el color que viene heredaro, en este caso de html*/    
+}
+
+header, footer{
+    font-family: 'Raleway', sans-serif;
+    color: white;/*definir lo q esta dentro del head y foot sea de color blanco en este caso los enlaces*/
+}
+
+ul, ol { /* normalizar las litas desordenadas y ordenadas, no esten numeradas ni con viñetas*/
+    list-style-type: none;    
+}
+
+p { /*normalizar los parrafos*/
+    font-size: 1.8em;
+
+}
+
+.container{
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
