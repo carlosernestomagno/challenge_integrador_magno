@@ -1,0 +1,12 @@
+main{
+    display: flex;
+}
+aside{
+    background-color: aqua;
+    flex-grow: 2;
+}
+
+section{
+    background-color: antiquewhite;
+    flex-grow: 6;
+}

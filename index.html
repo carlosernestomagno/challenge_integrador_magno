@@ -9,31 +9,42 @@
 </head>
 <body>    
     <HEader>  <!-- Inicio del Header-->
-        <NAV>
-            <picture>
+        <NAV class="navbar container"> <!--bloque padre navbar-->
+            <picture class="navbar__logo"> <!--bloque hijo lleva nomb. padre + descripcion hijo -->
                 <a href="./index.html">
                     <img src="./img/branding/logo_light_horizontal.svg" alt="Isologotipo de la marca FUNKOSHOP">
                 </a>              
             </picture>           
-            <ul>
-                <li>
-                    <a href="./pages/shop.html">SHOP</a>
+            <ul class="navbar__menu"> <!--creacion del submenu en shop-->
+                <li class="navbar__item with-submenu"> <!--clase with-submenu aparezca solo cuando paso el cursor-->
+                    <a class="navbar__link whit-icon" href="./pages/shop.html">SHOP<iconify-icon icon="tabler:chevron-down"></iconify-icon></a> <!--enalce del icono chevron-->
+                    <ul class="submenu">
+                        <li class="submenu__item" >
+                            <a href="" class="submenu__link">Funkos</a>
+                        </li>
+                        <li class="submenu__item" >
+                            <a href="" class="submenu__link">Remeras</a>
+                        </li>
+                        <li class="submenu__item" >
+                            <a href="" class="submenu__link">Llaveros</a>
+                        </li>
+                    </ul>
                 </li>
-                <li>
-                    <a href="./pages/contacto.html">CONTACTO</a>
+                <li class="navbar__item">
+                    <a class="navbar__link" href="./pages/contacto.html">CONTACTO</a>
                 </li>
-                <li>
-                    <a href="./pages/login.html">LOGIN</a>
+                <li class="navbar__item">
+                    <a class="navbar__link" href="./pages/login.html">LOGIN</a>
                 </li>
-                <li>
-                    <a href="./pages/cart.html">
+                <li class="navbar__item">
+                    <a class="navbar__cart" href="./pages/cart.html">
                         <img src="./img/icons/cart-icon.svg" alt="icono de carrito">
                     </a>
                 </li>
             </ul>
         </NAV>
     </HEader> <!-- Fin del Header-->
-    <main class="container"><!-- Inicio del Main principal del HOME-->
+    <main /*class="container"*/><!-- Inicio del Main principal del HOME-->
         <section><!-- Inicio del Baner-->
             <article>
                 <h3>Nuevos Ingresos</h3>
@@ -148,6 +159,7 @@
         <p>All rights reserved 2023 - Funkoshop &copy;</p>
     </footer><!--Fin del Pie de Pagina (footer)-->
 
-    
+    <!--enlace del icono del chevron-->
+    <script src="https://cdn.jsdelivr.net/npm/iconify-icon@1.0.7/dist/iconify-icon.min.js"></script>    
 </body>
 </html>

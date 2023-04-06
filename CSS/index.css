@@ -14,11 +14,42 @@
     --secondary-500:rgba(29, 132, 181, 0.5);
     --secondary-300:rgba(29, 132, 181, 0.3);
 
+    --dark-solid:#1F1F1F;
+    --dark-900:rgba(31, 31, 31, 0.9);
+    --dark-500:rgba(31, 31, 31, 0.5);
+    --dark-300:rgba(31, 31, 31, 0.3);
 
-    --dark-solid:#30343F;
-    --dark-900:rgba(48, 52, 63, 0.9);
-    --dark-500:rgba(48, 52, 63, 0.5);
-    --dark-300:rgba(48, 52, 63, 0.3);
+    --dark-bg-solid:#30343F;
+    --light-bg-solid:#FAFAFF; 
+    --light-font-solid: #FFFFFF;
+
+
+    /*Typography*/
+
+    --base-font: 'Inter', sans-serif;
+    --anternaty-font: 'Raleway', sans-serif;
+    
+    /*Font - size*/
+    --font-display: 4.6em;
+    --font-jumbo: 3.8em;
+    --font-xlarge: 3em;
+    --font-large: 2.4em;
+    --font-medium: 1.8em;
+    --font-small: 1.6em;
+    --font-xsmall: 1.4em;
+
+    /*Spacing (espacios o rellenos)*/
+    --spacing-128: 12.8rem;
+    --spacing-68: 6.8rem;
+    --spacing-36: 3.6rem;
+    --spacing-28: 2.8rem;
+    --spacing-24: 2.4rem;
+    --spacing-20: 2rem;
+    --spacing-16: 1.6rem;
+    --spacing-12: 1.2rem;
+    --spacing-8: 0.8rem;
+
+
 }
 
 *, /*sacar el marge y relleno de eapcio, dentro de la caja poner margen*/
@@ -30,24 +61,23 @@
 }
 
 html{/*normalizar la etiqueta raiz de header, y heredas sus propiedades a sus hijos*/
-    font-family: 'Inter', sans-serif;
+    font-family: var(--base-font);
     font-size: 62.5%;/*= a 10px */
-    color: #111111;
+    color: var(--dark-solid);
 }
 
 a { /* normalizar los enlaces, texto sacar el subrayado, tamaño fuente, color*/
     text-decoration: none;
-    font-size: 2em;
     font-family: inherit;
     color: inherit; /*que tome el color que viene heredaro, en este caso de html*/    
 }
 
 header, footer{
-    font-family: 'Raleway', sans-serif;
-    color: white;/*definir lo q esta dentro del head y foot sea de color blanco en este caso los enlaces*/
+    font-family: var(--anternaty-font);
+    color: var(--light-font-solid);/*definir lo q esta dentro del head y foot sea de color blanco en este caso los enlaces*/
 }
 
-ul, ol { /* normalizar las litas desordenadas y ordenadas, no esten numeradas ni con viñetas*/
+ul, ol{ /* normalizar las litas desordenadas y ordenadas, no esten numeradas ni con viñetas*/
     list-style-type: none;    
 }
 
@@ -56,8 +86,82 @@ p { /*normalizar los parrafos*/
 
 }
 
+img { /*normalizar la etiqueta img p q no se escape el tamaño en css*/
+    width: 100%;
+
+}
+
 .container{
     max-width: 1200px;
     margin: 0 auto;
 }
 
+/*HEADER*/
+
+header {
+    background-color: var(--dark-bg-solid);
+    padding: var(--spacing-36);/*relleno al navbar para de arriba y abajo, se le aplica al header para q siga la linea para todos*/
+
+}
+
+.navbar{  /* que esta en la etiqueta padre, heredan las etiquetas hijos estan adentro*/
+    display: flex;/*para q los elementos sean flexibles y se pongaa uno al lado del otro*/
+    justify-content: space-between; /*elemento este final margen derecho*/
+    align-items: center;/*alinea y centra los elementos*/
+        
+}
+
+.navbar__logo { /*ajustar el tamaño del logo, es mas chico*/
+    max-width: 300px;
+
+}
+
+.navbar__menu { /*a la clase del menu le colocamos un display*/
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-20); /*darle una separacion a los elementos del menu*/
+
+}
+
+.navbar__link {
+    font-size: var(--font-medium);
+
+}
+
+.navbar__link:hover { /*cuando pase el puntero del mouse por el link se note*/
+    background-color: var(--primary-900);
+    padding: var(--spacing-8) var(--spacing-16);/*primero espesor arriba y abajo y el otro para los costados*/
+    display: inline-block; /*padding este dentro del flujo de la pagina*/
+    transition: background .3s ease-in-out; /*entra salgo con el mouse se note mas tenga un delay de tiemp*/
+    position: relative; /*submenu se relativo al padre shop y no al body de la pagina*/
+
+}
+
+.with-icon { /*clase par centrar el shop con el chevron son clases de ayuda, coloco abajo de la clase navbarlink tiene menos priordad asi toma el cambio*/
+    display: flex;/*le damos flexibilidad al elemento*/
+    align-items: center; /*centramos al elemento*/
+    gap: var(--spacing-8); /*separen 8px los elementos*/
+}
+
+.with-submenu:hover .submenu { /*cuando haga hover al submenu recien aparezca*/
+    display: block;
+
+}
+
+.submenu {
+    display: none;/*cuando no haga hover sobre el shop, no se despliega el submenu*/
+    width: 300px;
+    position: absolute; /*para sacarlo del flujo de la pagina*/
+    background-color: var(--dark-bg-solid); /*tenga mismo color*/
+}
+
+.submenu__link {
+    display: block;/*para poder darle tamaño a los elementos del submenu*/
+    padding: var(--spacing-8) var(--spacing-16);/*darle relleno 8 para arriba y abajo y el 16 para los costados*/
+    font-size: var(--font-medium);  /*tamaño fuente*/
+    transition: background .3s ease-in-out; /*entra salgo con el mouse se note mas tenga un delay de tiemp*/
+}
+
+.submenu__link:hover {
+    background-color: var(--primary-900);
+}
