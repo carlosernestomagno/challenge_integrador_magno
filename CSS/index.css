@@ -230,3 +230,58 @@ header {
     color: var(--light-font-solid); /*color de letra*/
 
 }
+
+/*COLLECTIONS (MAIN) - EMPEZAMOS A MAQUETAR*/
+
+.collection {
+    display: grid;/*poner el article y picture una a la par de la otra, utilizo el grid es mas sencillo manejarlo que al flex*/
+    grid-template-columns: repeat(2, 1fr);/*divida dos columnas de 50% c/u*/
+    align-items: center; /*todos los elementos grilla se posicionen en el centro*/
+    
+}
+
+.collection:nth-child(2) .collection__cover { /*en este caso la img es el collection.cover*//*seleccionamos el segundo hijo de la coleccion el que varmos a invertir article con el picture*/
+    order: -1; /*con este valor lo invierto y lo mando a la primera posicion*/
+
+}
+    
+.collection__content {
+    display: flex; /*los 3 elementos tienen q estar en columnas*/
+    flex-direction: column;/*lo ubicamos en column*/
+    gap: var(--spacing-24);/*separacion de 24px*/
+    align-items: start;/*boton ver coleccion ocupe el ancho de ese elemento y toda la caja se ponga blanco*/
+}
+
+.collection__title { /*tipo de letra, tamaño y espesor o peso*/
+    font-family: var(--anternaty-font);
+    font-size: var(--font-display);
+    font-weight: 500;
+    
+}
+
+.collection__text { /*tipo de letra, tamaño y espesor o peso*/
+    font-family: var(--anternaty-font);
+    font-size: var(--font-large);
+    font-weight: 300;
+    border-bottom: 2px solid var(--primary-solid);/*dibujamos la linea de separacion, espesor y color*/
+    padding-bottom: var(--spacing-20);/*no este pegado la fuente con la linea una separacion de 20px*/
+
+}
+
+.collection__link {
+    display: inline-block; /*enlace para que tome todos los padding*/
+    font-size: var(--font-medium);/*tamaño de fuente 1.8em - 18px*/
+    background-color: var(--dark-bg-solid); /*color blanco totol*/
+    color: var(--light-font-solid);/*color de la letra*/
+    padding: var(--spacing-16) var(--spacing-36);/*relleno arriba - abajo de 12px y a los costado de 68px*/
+    border-radius: 50px;/*boton darle el redondeado*/
+    font-weight: 500;/*peso de letra q es un poquito mas oscuro*/
+    transition: background 0.3s ease-in-out;/*transicion es para el hover p q afecte al background y al color del hover de link*/
+
+}
+
+.collection__link:hover { /*pasemos el puntero por encima cambie de color*/
+    background-color: var(--primary-900);/*color de fondo*/
+    /*color: var(--light-font-solid); /*color de letra*/
+
+}
