@@ -165,3 +165,68 @@ header {
 .submenu__link:hover {
     background-color: var(--primary-900);
 }
+
+/*HERO - (Baner)*/
+
+.hero {
+    background-image: url(../img/funkos-banner.webp); /*pongo la imagen del banner y aparece del mismo alto que sus elementos*/
+    padding: var(--spacing-128);/*hacer crecer al padre relleno 128px*/
+    background-color: top; /*capas no aparezcan cuando voy a inspeccionar*/
+    background-size: cover;/*para que no se corte la img vamos a manipular su tamaño*/
+    background-attachment: fixed;/*cuando hagamos scroll el background quede fijo o sea la img*/
+    position: relative;/*tome la capa laureada y opacidad que va a la igm del background*/
+    
+}
+
+.hero::before { /*modificar la pseuclase del hero antes para opocar un poco la imagen y no las fuentes*/
+    content: ''; /*esto es para poner una capa laurea y opacidad una encima del bckground */
+    background-color: rgba(0,0,0, 0);
+    width: 100%; /*le damos un ancho*/
+    height: 100%;/*le damos un alto*/
+    position: absolute;
+    top: 0%; /*el top y left para que este a la misma altura que la img y no desplazado*/
+    left: 0%;
+    backdrop-filter: blur(2px) brightness(.9);/*supergongan la capas y la brightness luminosidad*/
+
+    
+}
+
+.hero__content {
+    display: flex; /*me permite ponerlo uno arriba del otro y de paso para separlo tambien verticalmente, en este caso no para ponerlo uno arriba del otro*/
+    flex-direction: column;
+    gap: var(--spacing-20);/*para poder separar margenes*/
+    align-items: start; /*se ubique al principio con el taamño del elemento y no tome el 100% del contenido el boton blanco a diferencia de strech*/
+    z-index: 2; /*traiga la capa de las letras adelante del img*/
+    position: relative; /*para que la haga mas visible las fuentes y la img quede blureada*/
+
+}
+
+.hero__title {
+    font-family: var(--anternaty-font); /*tipo de fuente la letra raleway*/
+    font-size: var(--font-jumbo); /*tamaño de fuente 38px*/
+    color: var(--light-font-solid); /*color claro q no es todo blanco*/
+}
+
+.hero__text {
+    font-family: var(--anternaty-font); /*tipo de fuente la letra raleway*/
+    font-size: var(--font-medium); /*tamaño de fuente 1.8em - 18px*/
+    color: var(--light-font-solid);
+
+}
+
+.hero__link {
+    display: inline-block; /*enlace para que tome todos los padding*/
+    font-size: var(--font-medium);/*tamaño de fuente 1.8em - 18px*/
+    background-color: var(--light-bg-solid); /*color blanco totol*/
+    padding: var(--spacing-12) var(--spacing-68);/*relleno arriba - abajo de 12px y a los costado de 68px*/
+    border-radius: 50px;/*boton darle el redondeado*/
+    font-weight: 500;/*peso de letra q es un poquito mas oscuro*/
+    transition: all 0.3s ease-in-out;/*transicion es para el hover p q afecte al background y al color del hover de link*/
+
+}
+
+.hero__link:hover { /*pasemos el puntero por encima cambie de color*/
+    background-color: var(--primary-900);/*color de fondo*/
+    color: var(--light-font-solid); /*color de letra*/
+
+}
