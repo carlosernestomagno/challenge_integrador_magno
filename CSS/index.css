@@ -153,6 +153,7 @@ header {
     width: 300px;
     position: absolute; /*para sacarlo del flujo de la pagina*/
     background-color: var(--dark-bg-solid); /*tenga mismo color*/
+    z-index: 3;/*el sub-menu del shop este por encima de la capa 2 y sea visible ya que son 3 capas y una lo tapa sino coloco esta instruccion*/
 }
 
 .submenu__link {
@@ -237,6 +238,7 @@ header {
     display: grid;/*poner el article y picture una a la par de la otra, utilizo el grid es mas sencillo manejarlo que al flex*/
     grid-template-columns: repeat(2, 1fr);/*divida dos columnas de 50% c/u*/
     align-items: center; /*todos los elementos grilla se posicionen en el centro*/
+    padding: var(--spacing-16) 0; /*para q las colecciones esten separadas con un relleno 16px arriga y abajo y cero a los costados*/
     
 }
 
@@ -283,5 +285,100 @@ header {
 .collection__link:hover { /*pasemos el puntero por encima cambie de color*/
     background-color: var(--primary-900);/*color de fondo*/
     /*color: var(--light-font-solid); /*color de letra*/
+
+}
+
+/*SLIDER*/
+
+.slider { /*maquetar la caja padre*/
+    display: flex; /*flexibilidad a los elemento*/
+    flex-direction: column; /*para poner los elementos de esta caja en columna img y las fuentes abajo title, precio, promo*/
+    gap: var(--spacing-36); /*separar el titulo de los elementos 36px*/
+    margin: var(--spacing-68) auto; /*margen 68px arriba y abajo, se autoajuste a los costados*/
+    
+}
+
+.slider__title { /*maquetar titulo: utlimos lanzamientos*/
+    font-family: var(--anternaty-font);/*tipo de fuente raleway*/
+    font-size: var(--font-display); /*tamaño de la fuente*/
+    text-transform: uppercase; /*pasar todo el texto a mayuscula*/
+}
+
+.slider__items { /*maquetar las 3 card*/
+    display: flex; /*para que las card se posiciones uno al lado del otro horizontalmente*/
+    gap: var(--spacing-24); /*separar las cajas de las card y q no esten pegadas de 24px*/
+  
+}
+
+.card-item__cover {
+    display: flex;/*pone una img al lado de la otra, despues la ocultamos*/
+    position: relative;/*para el right de la etiqueta nuevo se posicione a la derecha de c/u de las card*/
+}
+
+.card-item__tag { /*etiqueta de nuevo de cada card*/
+    font-size: var(--font-xsmall); /*tamaño de 14px*/
+    text-transform: uppercase; /*texto todo mayuscula*/
+    background-color: var(--primary-solid);/*etiqueta color naranja*/
+    color: var(--light-font-solid);/*color de fuente el blanco total*/
+    padding: var(--spacing-8) var(--spacing-12);/*relleno arriba y abajo de 8px y costados 12px*/
+    position: absolute; /*toma relleno de la caja del elemento fuente y toda la caja padre*/
+    right: 0; /*para q se valla la etiqueta de nuevo a la derecha*/
+}
+
+.card-item__cover img { /*cada vez que hago hover sobre img tiene un efecto de desvanecimiento*/
+    animation: fade .7s; /*ese efecto desvanecimiento dura 7 segundos*/
+}
+
+.card-item__img--back { /*mientras no haga cover sobre el bloque q no haga nada*/
+    display: none; /*q no muestre la segunda figura o se la img con caja*/
+
+}
+
+.card-item__cover:hover .card-item__img--back{ /*cuando pasamos el puntero por encima de img*/
+    display: block;/*elemento se comporte como un bloque*/
+
+}
+
+.card-item__cover:hover .card-item__img--front {
+    display: none;/*cuando haga hover se oculte img front y aparezca la del img back*/
+}
+
+.card-item__content { /*maquetar los textos debajo de la figura en cada card*/
+    display: flex;/*flexibilidad a los elemento*/
+    flex-direction: column; /*para poner los elementos de esta caja en columna img y las fuentes abajo title, precio, promo*/
+    gap: var(--spacing-12);/*separar el titulo de los elementos 12px*/
+    padding: var(--spacing-16); /*relleno arriba-abajo y a los costados este separado del margen de las cajas*/
+
+}
+
+.card-item__licence { /*maquetar los parrafos*/
+    font-size: var(--font-xsmall); /*tamaño de fuente 1.4em 14px*/
+    font-weight: 500; /*peso o grosor de fuente*/
+}
+
+.card-item__name { /*maquetar los parrafos*/
+    font-size: var(--font-medium); /*tamaño de fuente 1.4em 14px*/
+    font-weight: 700; /*peso o grosor de fuente*/
+}
+
+.card-item__price { /*maquetar los parrafos*/
+    font-size: var(--font-small); /*tamaño de fuente 1.4em 14px*/
+    
+}
+
+.card-item__promo { /*maquetar los parrafos*/
+    font-size: var(--font-xsmall); /*tamaño de fuente 1.4em 14px*/
+    color: var(--secondary-solid); /*color de fuente diferente*/
+    font-weight: 700; /*peso o grosor de fuente*/
+}
+
+@keyframes fade { /*animacion para mejorar el ocultamiento de la img cuando haga hover*/
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
 
 }
