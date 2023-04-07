@@ -295,7 +295,7 @@ header {
     flex-direction: column; /*para poner los elementos de esta caja en columna img y las fuentes abajo title, precio, promo*/
     gap: var(--spacing-36); /*separar el titulo de los elementos 36px*/
     margin: var(--spacing-68) auto; /*margen 68px arriba y abajo, se autoajuste a los costados*/
-    
+
 }
 
 .slider__title { /*maquetar titulo: utlimos lanzamientos*/
@@ -371,6 +371,23 @@ header {
     color: var(--secondary-solid); /*color de fuente diferente*/
     font-weight: 700; /*peso o grosor de fuente*/
 }
+
+
+/*FOOTER*/
+
+.footer { /*maquetar el foote o pie de pagina*/
+    background-color: var(--dark-bg-solid) ; /*color de la caja total del footer*/
+    padding: var(--spacing-68);/*color de relleno al footer arriga y abajo o se margen*/
+
+}
+
+.footer__copy { /*maquetar el copy*/
+    margin-top: var(--spacing-36);/*no este pegado arriba al margen de la footer*/
+    text-align: center; /*alinear el copy al centro */
+
+}
+
+/*ANIMATION*/
 
 @keyframes fade { /*animacion para mejorar el ocultamiento de la img cuando haga hover*/
     0% {
