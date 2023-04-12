@@ -376,7 +376,7 @@ header {
 /*FOOTER*/
 
 .footer { /*maquetar el foote o pie de pagina*/
-    background-color: var(--dark-bg-solid) ; /*color de la caja total del footer*/
+    background-color: var(--dark-bg-solid); /*color de la caja total del footer*/
     padding: var(--spacing-68);/*color de relleno al footer arriga y abajo o se margen*/
 
 }

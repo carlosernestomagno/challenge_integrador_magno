@@ -96,3 +96,158 @@ p { /*seleccionar los parrafos normalizar la fuente*/
     margin: 0 auto; /*al margen lo calcula automaticamente y le pongo de valor cero*/
 
 }
+
+/*HEADER*/
+
+header {
+    background-color: var(--dark-bg-solid);
+    padding: var(--spacing-36);/*relleno al navbar para de arriba y abajo, se le aplica al header para q siga la linea para todos*/
+
+}
+
+.navbar{  /* que esta en la etiqueta padre, heredan las etiquetas hijos estan adentro*/
+    display: flex;/*para q los elementos sean flexibles y se pongaa uno al lado del otro*/
+    justify-content: space-between; /*elemento este final margen derecho*/
+    align-items: center;/*alinea y centra los elementos*/
+        
+}
+
+.navbar__logo { /*ajustar el tamaño del logo, es mas chico*/
+    max-width: 300px;
+
+}
+
+.navbar__menu { /*a la clase del menu le colocamos un display*/
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-20); /*darle una separacion a los elementos del menu*/
+
+}
+
+.navbar__link {
+    font-size: var(--font-medium);
+
+}
+
+.navbar__link:hover { /*cuando pase el puntero del mouse por el link se note*/
+    background-color: var(--primary-900);
+    padding: var(--spacing-8) var(--spacing-16);/*primero espesor arriba y abajo y el otro para los costados*/
+    display: inline-block; /*padding este dentro del flujo de la pagina*/
+    transition: background .3s ease-in-out; /*entra salgo con el mouse se note mas tenga un delay de tiemp*/
+    position: relative; /*submenu se relativo al padre shop y no al body de la pagina*/
+
+}
+
+.with-icon { /*clase par centrar el shop con el chevron son clases de ayuda, coloco abajo de la clase navbarlink tiene menos priordad asi toma el cambio*/
+    display: flex;/*le damos flexibilidad al elemento*/
+    align-items: center; /*centramos al elemento*/
+    gap: var(--spacing-8); /*separen 8px los elementos*/
+}
+
+.with-submenu:hover .submenu { /*cuando haga hover al submenu recien aparezca*/
+    display: block;
+
+}
+
+.submenu {
+    display: none;/*cuando no haga hover sobre el shop, no se despliega el submenu*/
+    width: 300px;
+    position: absolute; /*para sacarlo del flujo de la pagina*/
+    background-color: var(--dark-bg-solid); /*tenga mismo color*/
+    z-index: 3;/*el sub-menu del shop este por encima de la capa 2 y sea visible ya que son 3 capas y una lo tapa sino coloco esta instruccion*/
+}
+
+.submenu__link {
+    display: block;/*para poder darle tamaño a los elementos del submenu*/
+    padding: var(--spacing-8) var(--spacing-16);/*darle relleno 8 para arriba y abajo y el 16 para los costados*/
+    font-size: var(--font-medium);  /*tamaño fuente*/
+    transition: background .3s ease-in-out; /*entra salgo con el mouse se note mas tenga un delay de tiemp*/
+}
+
+.submenu__link:hover {
+    background-color: var(--primary-900);
+
+}
+/*COLLECTIONS (MAIN) - EMPEZAMOS A MAQUETAR*/
+
+
+/*SLIDER*/
+
+.slider { /*maquetar la caja padre*/
+
+    display: flex; /*flexibilidad a los elemento*/
+    flex-direction: column; /*para poner los elementos de esta caja en columna img y las fuentes abajo title, precio, promo*/
+    gap: var(--spacing-36); /*separar el titulo de los elementos 36px*/
+    margin: var(--spacing-68) auto; /*margen 68px arriba y abajo, se autoajuste a los costados*/
+
+}
+
+
+.slider__items { /*maquetar las 3 card*/
+    display: flex; /*para que las card se posiciones uno al lado del otro horizontalmente*/
+    gap: var(--spacing-24); /*separar las cajas de las card y q no esten pegadas de 24px*/
+  
+}
+
+
+.card-item__tag { /*etiqueta de nuevo de cada card*/
+    font-size: var(--font-xsmall); /*tamaño de 14px*/
+    text-transform: uppercase; /*texto todo mayuscula*/
+    background-color: var(--primary-solid);/*etiqueta color naranja*/
+    color: var(--light-font-solid);/*color de fuente el blanco total*/
+    padding: var(--spacing-8) var(--spacing-12);/*relleno arriba y abajo de 8px y costados 12px*/
+    position: absolute; /*toma relleno de la caja del elemento fuente y toda la caja padre*/
+    right: 0; /*para q se valla la etiqueta de nuevo a la derecha*/
+}
+
+
+
+
+
+
+
+
+.card-item__content { /*maquetar los textos debajo de la figura en cada card*/
+    display: flex;/*flexibilidad a los elemento*/
+    flex-direction: column; /*para poner los elementos de esta caja en columna img y las fuentes abajo title, precio, promo*/
+    gap: var(--spacing-12);/*separar el titulo de los elementos 12px*/
+    padding: var(--spacing-16); /*relleno arriba-abajo y a los costados este separado del margen de las cajas*/
+
+}
+
+.card-item__licence { /*maquetar los parrafos*/
+    font-size: var(--font-xsmall); /*tamaño de fuente 1.4em 14px*/
+    font-weight: 500; /*peso o grosor de fuente*/
+}
+
+.card-item__name { /*maquetar los parrafos*/
+    font-size: var(--font-medium); /*tamaño de fuente 1.4em 14px*/
+    font-weight: 700; /*peso o grosor de fuente*/
+}
+
+.card-item__price { /*maquetar los parrafos*/
+    font-size: var(--font-small); /*tamaño de fuente 1.4em 14px*/
+    
+}
+
+.card-item__promo { /*maquetar los parrafos*/
+    font-size: var(--font-xsmall); /*tamaño de fuente 1.4em 14px*/
+    color: var(--secondary-solid); /*color de fuente diferente*/
+    font-weight: 700; /*peso o grosor de fuente*/
+}
+
+
+/*FOOTER*/
+
+.footer { /*maquetar el foote o pie de pagina*/
+    background-color: var(--dark-bg-solid) ; /*color de la caja total del footer*/
+    padding: var(--spacing-68);/*color de relleno al footer arriga y abajo o se margen*/
+
+}
+
+.footer__copy { /*maquetar el copy*/
+    margin-top: var(--spacing-36);/*no este pegado arriba al margen de la footer*/
+    text-align: center; /*alinear el copy al centro */
+
+}
+
