@@ -14,11 +14,42 @@
     --secondary-500:rgba(29, 132, 181, 0.5);
     --secondary-300:rgba(29, 132, 181, 0.3);
 
+    --dark-solid:#1F1F1F;
+    --dark-900:rgba(31, 31, 31, 0.9);
+    --dark-500:rgba(31, 31, 31, 0.5);
+    --dark-300:rgba(31, 31, 31, 0.3);
 
-    --dark-solid:#30343F;
-    --dark-900:rgba(48, 52, 63, 0.9);
-    --dark-500:rgba(48, 52, 63, 0.5);
-    --dark-300:rgba(48, 52, 63, 0.3);
+    --dark-bg-solid:#30343F;
+    --light-bg-solid:#FAFAFF; 
+    --light-font-solid: #FFFFFF;
+
+
+    /*Typography*/
+
+    --base-font: 'Inter', sans-serif;
+    --anternaty-font: 'Raleway', sans-serif;
+    
+    /*Font - size*/
+    --font-display: 4.6em;
+    --font-jumbo: 3.8em;
+    --font-xlarge: 3em;
+    --font-large: 2.4em;
+    --font-medium: 1.8em;
+    --font-small: 1.6em;
+    --font-xsmall: 1.4em;
+
+    /*Spacing (espacios o rellenos)*/
+    --spacing-128: 12.8rem;
+    --spacing-68: 6.8rem;
+    --spacing-36: 3.6rem;
+    --spacing-28: 2.8rem;
+    --spacing-24: 2.4rem;
+    --spacing-20: 2rem;
+    --spacing-16: 1.6rem;
+    --spacing-12: 1.2rem;
+    --spacing-8: 0.8rem;
+
+
 }
 
 *, /*sacar el marge y relleno de eapcio, dentro de la caja poner margen*/
@@ -30,24 +61,23 @@
 }
 
 html{/*normalizar la etiqueta raiz de header, y heredas sus propiedades a sus hijos*/
-    font-family: 'Inter', sans-serif;
+    font-family: var(--base-font);
     font-size: 62.5%;/*= a 10px */
-    color: #111111;
+    color: var(--dark-solid);
 }
 
 a { /* normalizar los enlaces, texto sacar el subrayado, tamaño fuente, color*/
     text-decoration: none;
-    font-size: 2em;
     font-family: inherit;
     color: inherit; /*que tome el color que viene heredaro, en este caso de html*/    
 }
 
 header, footer{
-    font-family: 'Raleway', sans-serif;
-    color: white;/*definir lo q esta dentro del head y foot sea de color blanco en este caso los enlaces*/
+    font-family: var(--anternaty-font);
+    color: var(--light-font-solid);/*definir lo q esta dentro del head y foot sea de color blanco en este caso los enlaces*/
 }
 
-ul, ol { /* normalizar las litas desordenadas y ordenadas, no esten numeradas ni con viñetas*/
+ul, ol{ /* normalizar las litas desordenadas y ordenadas, no esten numeradas ni con viñetas*/
     list-style-type: none;    
 }
 
@@ -56,8 +86,316 @@ p { /*normalizar los parrafos*/
 
 }
 
+img { /*normalizar la etiqueta img p q no se escape el tamaño en css*/
+    width: 100%;
+
+}
+
 .container{
     max-width: 1200px;
     margin: 0 auto;
 }
 
+/*HEADER*/
+
+header {
+    background-color: var(--dark-bg-solid);
+    padding: var(--spacing-36);/*relleno al navbar para de arriba y abajo, se le aplica al header para q siga la linea para todos*/
+
+}
+
+.navbar{  /* que esta en la etiqueta padre, heredan las etiquetas hijos estan adentro*/
+    display: flex;/*para q los elementos sean flexibles y se pongaa uno al lado del otro*/
+    justify-content: space-between; /*elemento este final margen derecho*/
+    align-items: center;/*alinea y centra los elementos*/
+        
+}
+
+.navbar__logo { /*ajustar el tamaño del logo, es mas chico*/
+    max-width: 300px;
+
+}
+
+.navbar__menu { /*a la clase del menu le colocamos un display*/
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-20); /*darle una separacion a los elementos del menu*/
+
+}
+
+.navbar__link {
+    font-size: var(--font-medium);
+
+}
+
+.navbar__link:hover { /*cuando pase el puntero del mouse por el link se note*/
+    background-color: var(--primary-900);
+    padding: var(--spacing-8) var(--spacing-16);/*primero espesor arriba y abajo y el otro para los costados*/
+    display: inline-block; /*padding este dentro del flujo de la pagina*/
+    transition: background .3s ease-in-out; /*entra salgo con el mouse se note mas tenga un delay de tiemp*/
+    position: relative; /*submenu se relativo al padre shop y no al body de la pagina*/
+
+}
+
+.with-icon { /*clase par centrar el shop con el chevron son clases de ayuda, coloco abajo de la clase navbarlink tiene menos priordad asi toma el cambio*/
+    display: flex;/*le damos flexibilidad al elemento*/
+    align-items: center; /*centramos al elemento*/
+    gap: var(--spacing-8); /*separen 8px los elementos*/
+}
+
+.with-submenu:hover .submenu { /*cuando haga hover al submenu recien aparezca*/
+    display: block;
+
+}
+
+.submenu {
+    display: none;/*cuando no haga hover sobre el shop, no se despliega el submenu*/
+    width: 300px;
+    position: absolute; /*para sacarlo del flujo de la pagina*/
+    background-color: var(--dark-bg-solid); /*tenga mismo color*/
+    z-index: 3;/*el sub-menu del shop este por encima de la capa 2 y sea visible ya que son 3 capas y una lo tapa sino coloco esta instruccion*/
+}
+
+.submenu__link {
+    display: block;/*para poder darle tamaño a los elementos del submenu*/
+    padding: var(--spacing-8) var(--spacing-16);/*darle relleno 8 para arriba y abajo y el 16 para los costados*/
+    font-size: var(--font-medium);  /*tamaño fuente*/
+    transition: background .3s ease-in-out; /*entra salgo con el mouse se note mas tenga un delay de tiemp*/
+}
+
+.submenu__link:hover {
+    background-color: var(--primary-900);
+}
+
+/*HERO - (Baner)*/
+
+.hero {
+    background-image: url(../img/funkos-banner.webp); /*pongo la imagen del banner y aparece del mismo alto que sus elementos*/
+    padding: var(--spacing-128);/*hacer crecer al padre relleno 128px*/
+    background-color: top; /*capas no aparezcan cuando voy a inspeccionar*/
+    background-size: cover;/*para que no se corte la img vamos a manipular su tamaño*/
+    background-attachment: fixed;/*cuando hagamos scroll el background quede fijo o sea la img*/
+    position: relative;/*tome la capa laureada y opacidad que va a la igm del background*/
+    
+}
+
+.hero::before { /*modificar la pseuclase del hero antes para opocar un poco la imagen y no las fuentes*/
+    content: ''; /*esto es para poner una capa laurea y opacidad una encima del bckground */
+    background-color: rgba(0,0,0, 0);
+    width: 100%; /*le damos un ancho*/
+    height: 100%;/*le damos un alto*/
+    position: absolute;
+    top: 0%; /*el top y left para que este a la misma altura que la img y no desplazado*/
+    left: 0%;
+    backdrop-filter: blur(2px) brightness(.9);/*supergongan la capas y la brightness luminosidad*/
+
+    
+}
+
+.hero__content {
+    display: flex; /*me permite ponerlo uno arriba del otro y de paso para separlo tambien verticalmente, en este caso no para ponerlo uno arriba del otro*/
+    flex-direction: column;
+    gap: var(--spacing-20);/*para poder separar margenes*/
+    align-items: start; /*se ubique al principio con el taamño del elemento y no tome el 100% del contenido el boton blanco a diferencia de strech*/
+    z-index: 2; /*traiga la capa de las letras adelante del img*/
+    position: relative; /*para que la haga mas visible las fuentes y la img quede blureada*/
+
+}
+
+.hero__title {
+    font-family: var(--anternaty-font); /*tipo de fuente la letra raleway*/
+    font-size: var(--font-jumbo); /*tamaño de fuente 38px*/
+    color: var(--light-font-solid); /*color claro q no es todo blanco*/
+}
+
+.hero__text {
+    font-family: var(--anternaty-font); /*tipo de fuente la letra raleway*/
+    font-size: var(--font-medium); /*tamaño de fuente 1.8em - 18px*/
+    color: var(--light-font-solid);
+
+}
+
+.hero__link {
+    display: inline-block; /*enlace para que tome todos los padding*/
+    font-size: var(--font-medium);/*tamaño de fuente 1.8em - 18px*/
+    background-color: var(--light-bg-solid); /*color blanco totol*/
+    padding: var(--spacing-12) var(--spacing-68);/*relleno arriba - abajo de 12px y a los costado de 68px*/
+    border-radius: 50px;/*boton darle el redondeado*/
+    font-weight: 500;/*peso de letra q es un poquito mas oscuro*/
+    transition: all 0.3s ease-in-out;/*transicion es para el hover p q afecte al background y al color del hover de link*/
+
+}
+
+.hero__link:hover { /*pasemos el puntero por encima cambie de color*/
+    background-color: var(--primary-900);/*color de fondo*/
+    color: var(--light-font-solid); /*color de letra*/
+
+}
+
+/*COLLECTIONS (MAIN) - EMPEZAMOS A MAQUETAR*/
+
+.collection {
+    display: grid;/*poner el article y picture una a la par de la otra, utilizo el grid es mas sencillo manejarlo que al flex*/
+    grid-template-columns: repeat(2, 1fr);/*divida dos columnas de 50% c/u*/
+    align-items: center; /*todos los elementos grilla se posicionen en el centro*/
+    padding: var(--spacing-16) 0; /*para q las colecciones esten separadas con un relleno 16px arriga y abajo y cero a los costados*/
+    
+}
+
+.collection:nth-child(2) .collection__cover { /*en este caso la img es el collection.cover*//*seleccionamos el segundo hijo de la coleccion el que varmos a invertir article con el picture*/
+    order: -1; /*con este valor lo invierto y lo mando a la primera posicion*/
+
+}
+    
+.collection__content {
+    display: flex; /*los 3 elementos tienen q estar en columnas*/
+    flex-direction: column;/*lo ubicamos en column*/
+    gap: var(--spacing-24);/*separacion de 24px*/
+    align-items: start;/*boton ver coleccion ocupe el ancho de ese elemento y toda la caja se ponga blanco*/
+}
+
+.collection__title { /*tipo de letra, tamaño y espesor o peso*/
+    font-family: var(--anternaty-font);
+    font-size: var(--font-display);
+    font-weight: 500;
+    
+}
+
+.collection__text { /*tipo de letra, tamaño y espesor o peso*/
+    font-family: var(--anternaty-font);
+    font-size: var(--font-large);
+    font-weight: 300;
+    border-bottom: 2px solid var(--primary-solid);/*dibujamos la linea de separacion, espesor y color*/
+    padding-bottom: var(--spacing-20);/*no este pegado la fuente con la linea una separacion de 20px*/
+
+}
+
+.collection__link {
+    display: inline-block; /*enlace para que tome todos los padding*/
+    font-size: var(--font-medium);/*tamaño de fuente 1.8em - 18px*/
+    background-color: var(--dark-bg-solid); /*color blanco totol*/
+    color: var(--light-font-solid);/*color de la letra*/
+    padding: var(--spacing-16) var(--spacing-36);/*relleno arriba - abajo de 12px y a los costado de 68px*/
+    border-radius: 50px;/*boton darle el redondeado*/
+    font-weight: 500;/*peso de letra q es un poquito mas oscuro*/
+    transition: background 0.3s ease-in-out;/*transicion es para el hover p q afecte al background y al color del hover de link*/
+
+}
+
+.collection__link:hover { /*pasemos el puntero por encima cambie de color*/
+    background-color: var(--primary-900);/*color de fondo*/
+    /*color: var(--light-font-solid); /*color de letra*/
+
+}
+
+/*SLIDER*/
+
+.slider { /*maquetar la caja padre*/
+    display: flex; /*flexibilidad a los elemento*/
+    flex-direction: column; /*para poner los elementos de esta caja en columna img y las fuentes abajo title, precio, promo*/
+    gap: var(--spacing-36); /*separar el titulo de los elementos 36px*/
+    margin: var(--spacing-68) auto; /*margen 68px arriba y abajo, se autoajuste a los costados*/
+
+}
+
+.slider__title { /*maquetar titulo: utlimos lanzamientos*/
+    font-family: var(--anternaty-font);/*tipo de fuente raleway*/
+    font-size: var(--font-display); /*tamaño de la fuente*/
+    text-transform: uppercase; /*pasar todo el texto a mayuscula*/
+}
+
+.slider__items { /*maquetar las 3 card*/
+    display: flex; /*para que las card se posiciones uno al lado del otro horizontalmente*/
+    gap: var(--spacing-24); /*separar las cajas de las card y q no esten pegadas de 24px*/
+  
+}
+
+.card-item__cover {
+    display: flex;/*pone una img al lado de la otra, despues la ocultamos*/
+    position: relative;/*para el right de la etiqueta nuevo se posicione a la derecha de c/u de las card*/
+}
+
+.card-item__tag { /*etiqueta de nuevo de cada card*/
+    font-size: var(--font-xsmall); /*tamaño de 14px*/
+    text-transform: uppercase; /*texto todo mayuscula*/
+    background-color: var(--primary-solid);/*etiqueta color naranja*/
+    color: var(--light-font-solid);/*color de fuente el blanco total*/
+    padding: var(--spacing-8) var(--spacing-12);/*relleno arriba y abajo de 8px y costados 12px*/
+    position: absolute; /*toma relleno de la caja del elemento fuente y toda la caja padre*/
+    right: 0; /*para q se valla la etiqueta de nuevo a la derecha*/
+}
+
+.card-item__cover img { /*cada vez que hago hover sobre img tiene un efecto de desvanecimiento*/
+    animation: fade .7s; /*ese efecto desvanecimiento dura 7 segundos*/
+}
+
+.card-item__img--back { /*mientras no haga cover sobre el bloque q no haga nada*/
+    display: none; /*q no muestre la segunda figura o se la img con caja*/
+
+}
+
+.card-item__cover:hover .card-item__img--back{ /*cuando pasamos el puntero por encima de img*/
+    display: block;/*elemento se comporte como un bloque*/
+
+}
+
+.card-item__cover:hover .card-item__img--front {
+    display: none;/*cuando haga hover se oculte img front y aparezca la del img back*/
+}
+
+.card-item__content { /*maquetar los textos debajo de la figura en cada card*/
+    display: flex;/*flexibilidad a los elemento*/
+    flex-direction: column; /*para poner los elementos de esta caja en columna img y las fuentes abajo title, precio, promo*/
+    gap: var(--spacing-12);/*separar el titulo de los elementos 12px*/
+    padding: var(--spacing-16); /*relleno arriba-abajo y a los costados este separado del margen de las cajas*/
+
+}
+
+.card-item__licence { /*maquetar los parrafos*/
+    font-size: var(--font-xsmall); /*tamaño de fuente 1.4em 14px*/
+    font-weight: 500; /*peso o grosor de fuente*/
+}
+
+.card-item__name { /*maquetar los parrafos*/
+    font-size: var(--font-medium); /*tamaño de fuente 1.4em 14px*/
+    font-weight: 700; /*peso o grosor de fuente*/
+}
+
+.card-item__price { /*maquetar los parrafos*/
+    font-size: var(--font-small); /*tamaño de fuente 1.4em 14px*/
+    
+}
+
+.card-item__promo { /*maquetar los parrafos*/
+    font-size: var(--font-xsmall); /*tamaño de fuente 1.4em 14px*/
+    color: var(--secondary-solid); /*color de fuente diferente*/
+    font-weight: 700; /*peso o grosor de fuente*/
+}
+
+
+/*FOOTER*/
+
+.footer { /*maquetar el foote o pie de pagina*/
+    background-color: var(--dark-bg-solid); /*color de la caja total del footer*/
+    padding: var(--spacing-68);/*color de relleno al footer arriga y abajo o se margen*/
+
+}
+
+.footer__copy { /*maquetar el copy*/
+    margin-top: var(--spacing-36);/*no este pegado arriba al margen de la footer*/
+    text-align: center; /*alinear el copy al centro */
+
+}
+
+/*ANIMATION*/
+
+@keyframes fade { /*animacion para mejorar el ocultamiento de la img cuando haga hover*/
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+
+}
